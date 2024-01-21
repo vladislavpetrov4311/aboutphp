@@ -9,7 +9,7 @@ $connect = mysqli_connect($host, $username , $password, $database);
 
 
 
-$sql = "SELECT DISTINCT `id` FROM `plane`;";
+$sql = "SELECT `id` FROM `plane` LIMIT 2;";
 $res = mysqli_query($connect , $sql);
 
 while ($row = $res->fetch_assoc()) {
