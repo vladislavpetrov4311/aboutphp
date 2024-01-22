@@ -9,7 +9,7 @@ $connect = mysqli_connect($host, $username , $password, $database);
 
 
 
-$sql = "SELECT `id` , `vpp` , `dlina` FROM `plane` ORDER BY `id` DESC, `dlina`;";
+$sql = "SELECT `id` , `vpp` , `dlina` FROM `plane` ORDER BY `id` DESC, `vpp` DESC;";
 
 $res = mysqli_query($connect , $sql);
 
