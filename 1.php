@@ -9,7 +9,7 @@ $connect = mysqli_connect($host, $username , $password, $database);
 
 
 
-$sql = "SELECT `id` , `vpp` , `itog` FROM `plane` WHERE `vpp` IS NULL; ";
+$sql = "SELECT `id` , `vpp` , `itog` FROM `plane` WHERE `id` BETWEEN 2 AND 25;";
 
 $res = mysqli_query($connect , $sql);
 
