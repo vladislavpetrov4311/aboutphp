@@ -2,7 +2,7 @@ version: '3'
 
 services:
   myapp:
-    build: .
+    image: aboutphp-myapp
     volumes: 
       - ./:/var/www/html
     ports:
