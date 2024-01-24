@@ -9,13 +9,12 @@ $connect = mysqli_connect($host, $username , $password, $database);
 
 
 
-$sql = "SELECT `id` , `vpp` , `itog` FROM `plane` WHERE `id` = 30 AND `itog` = 100 AND `vpp` = 'русский текст !!!';";
+$sql = "SELECT `id` , `itog` FROM `plane` WHERE `id` = 30 OR `vpp` IS NULL;";
 
 $res = mysqli_query($connect , $sql);
 
 while ($row = $res->fetch_assoc()) {
     echo $row['id']."<br>";
-    echo $row['vpp']."<br>";
     echo $row['itog']."<br>";
     echo "<br>";
 
