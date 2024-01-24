@@ -9,7 +9,7 @@ $connect = mysqli_connect($host, $username , $password, $database);
 
 
 
-$sql = "SELECT `id` , `vpp` , `itog` FROM `plane` WHERE NOT `id` = 30;";
+$sql = "SELECT `id` , `vpp` , `itog` FROM `plane` WHERE `vpp` LIKE '%текст%';";
 
 $res = mysqli_query($connect , $sql);
 
