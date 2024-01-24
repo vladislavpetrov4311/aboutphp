@@ -9,15 +9,13 @@ $connect = mysqli_connect($host, $username , $password, $database);
 
 
 
-$sql = "SELECT *  FROM `plane` WHERE `vpp` LIKE 'р%!';";
+$sql = "SELECT `id` , `vpp` FROM `plane` WHERE `vpp` LIKE '__ текст%';";
 
 $res = mysqli_query($connect , $sql);
 
 while ($row = $res->fetch_assoc()) {
     echo $row['id']."<br>";
     echo $row['vpp']."<br>";
-    echo $row['dlina']."<br>";
-    echo $row['itog']."<br>";
     echo "<br>";
 
 }
