@@ -9,13 +9,12 @@ $connect = mysqli_connect($host, $username , $password, $database);
 
 
 
-$sql = "SELECT CONCAT(`id`, \"\" , `vpp`) FROM `plane`;";
+$sql = "SELECT CONCAT(`id`, \" \" , `vpp`) AS `new_volum` FROM `plane`;";
 
 $res = mysqli_query($connect , $sql);
 
 while ($row = $res->fetch_assoc()) {
-    echo $row['id']."<br>";
-    echo $row['vpp']."<br>";
+    echo $row['new_volum']."<br>";
     echo "<br>";
 
 }
