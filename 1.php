@@ -9,7 +9,7 @@ $connect = mysqli_connect($host, $username , $password, $database);
 
 
 
-$sql = "SELECT `id` , `vpp` FROM `plane` WHERE `vpp` LIKE '__ текст%';";
+$sql = "SELECT CONCAT(`id`, \"\" , `vpp`) FROM `plane`;";
 
 $res = mysqli_query($connect , $sql);
 
