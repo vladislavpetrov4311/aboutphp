@@ -9,7 +9,7 @@ $connect = mysqli_connect($host, $username , $password, $database);
 
 
 
-$sql = "SELECT MIN(`itog`) AS `result` FROM `plane`;";
+$sql = "SELECT SUM(`itog`) AS `result` FROM `plane` WHERE `id` = 30;";
 
 $res = mysqli_query($connect , $sql);
 
