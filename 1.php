@@ -9,7 +9,7 @@ $connect = mysqli_connect($host, $username , $password, $database);
 
 
 
-$sql = "SELECT MAX(`itog`) AS `result` FROM `plane`;";
+$sql = "SELECT MIN(`itog`) AS `result` FROM `plane`;";
 
 $res = mysqli_query($connect , $sql);
 
