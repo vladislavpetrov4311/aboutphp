@@ -9,13 +9,13 @@ $connect = mysqli_connect($host, $username , $password, $database);
 
 
 
-$sql = "SELECT `id`, `vpp`  FROM `plane` WHERE YEAR(`data`) = '2024';";
+$sql = "SELECT `itog`, SQRT(`itog`) AS `new_itog` FROM `plane`;";
 
 $res = mysqli_query($connect , $sql);
 
 while ($row = $res->fetch_assoc()) {
-    echo $row['id']."<br>";
-    echo $row['vpp']."<br>";
+    echo $row['itog']."<br>";
+    echo $row['new_itog']."<br>";
     echo "<br>";
 
 }
