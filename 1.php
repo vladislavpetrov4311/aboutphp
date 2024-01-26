@@ -9,7 +9,7 @@ $connect = mysqli_connect($host, $username , $password, $database);
 
 
 
-$sql = "SELECT SUM(`itog`) AS `result` FROM `plane` WHERE `id` = 30;";
+$sql = "SELECT SUM(`itog` * `id`) AS `result` FROM `plane` WHERE `id` = 30;";
 
 $res = mysqli_query($connect , $sql);
 
