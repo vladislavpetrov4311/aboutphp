@@ -9,13 +9,12 @@ $connect = mysqli_connect($host, $username , $password, $database);
 
 
 
-$sql = "SELECT `itog`, SQRT(`itog`) AS `new_itog` FROM `plane`;";
+$sql = "SELECT AVG(`itog`) AS `result` FROM `plane`;";
 
 $res = mysqli_query($connect , $sql);
 
 while ($row = $res->fetch_assoc()) {
-    echo $row['itog']."<br>";
-    echo $row['new_itog']."<br>";
+    echo $row['result']."<br>";
     echo "<br>";
 
 }
