@@ -9,7 +9,7 @@ $connect = mysqli_connect($host, $username , $password, $database);
 
 
 
-$sql = "SELECT COUNT(*) AS `result` FROM `plane`;";
+$sql = "SELECT MAX(`itog`) AS `result` FROM `plane`;";
 
 $res = mysqli_query($connect , $sql);
 
