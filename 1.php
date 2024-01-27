@@ -9,12 +9,11 @@ $connect = mysqli_connect($host, $username , $password, $database);
 
 
 
-$sql = "SELECT `id` , COUNT(`id`) AS `result` FROM `plane` WHERE `id` BETWEEN 2 AND 30 GROUP BY `id` HAVING `result` =2;";
+$sql = "SELECT COUNT(`id`) AS `result` FROM `plane` GROUP BY `id` ORDER BY `result`;";
 
 $res = mysqli_query($connect , $sql);
 
 while ($row = $res->fetch_assoc()) {
-    echo $row['id']."<br>";
     echo $row['result']."<br>";
     echo "<br>";
 
