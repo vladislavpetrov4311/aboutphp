@@ -9,7 +9,7 @@ $connect = mysqli_connect($host, $username , $password, $database);
 
 
 
-$sql = "SELECT `id` , COUNT(*) AS `result` FROM `plane` GROUP BY `id`;";
+$sql = "SELECT `id` , COUNT(`id`) AS `result` FROM `plane` GROUP BY `id` HAVING `result` >=2;";
 
 $res = mysqli_query($connect , $sql);
 
