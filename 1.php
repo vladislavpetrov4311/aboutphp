@@ -9,13 +9,13 @@ $connect = mysqli_connect($host, $username , $password, $database);
 
 
 
-$sql = "SELECT AVG(DISTINCT `itog`) AS `result` , SUM(`itog`) AS `result2` FROM `plane`;";
+$sql = "SELECT `id` , COUNT(*) AS `result` FROM `plane` GROUP BY `id`;";
 
 $res = mysqli_query($connect , $sql);
 
 while ($row = $res->fetch_assoc()) {
+    echo $row['id']."<br>";
     echo $row['result']."<br>";
-    echo $row['result2']."<br>";
     echo "<br>";
 
 }
