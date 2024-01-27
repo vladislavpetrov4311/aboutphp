@@ -9,7 +9,7 @@ $connect = mysqli_connect($host, $username , $password, $database);
 
 
 
-$sql = "SELECT `id` , COUNT(`id`) AS `result` FROM `plane` GROUP BY `id` HAVING `result` >=2;";
+$sql = "SELECT `id` , COUNT(`id`) AS `result` FROM `plane` WHERE `id` BETWEEN 2 AND 30 GROUP BY `id` HAVING `result` =2;";
 
 $res = mysqli_query($connect , $sql);
 
