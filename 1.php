@@ -12,13 +12,13 @@ $connect = mysqli_connect($host, $username , $password, $database);
 $sql = "SELECT `vpp` , `dlina` FROM `plane` WHERE `id` IN (SELECT `test`   
                                                            FROM `mytest`
                                                            WHERE `test` IN(
-                                                            SELECT `test2`
-                                                            FROM `mytest2`)
+                                                            SELECT `test`
+                                                            FROM `mytest2`
+                                                            WHERE `mytest`.`test` = `mytest2`.`test`)
                                                            );";
 
 $res = mysqli_query($connect , $sql);
 
-//SELECT в подзапросе может возвращать только 1 столбец !!! 
 
 while ($row = $res->fetch_assoc()) {
     echo $row['vpp']."<br>";
