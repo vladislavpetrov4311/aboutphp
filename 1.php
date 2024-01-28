@@ -18,6 +18,8 @@ $sql = "SELECT `vpp` , `dlina` FROM `plane` WHERE `id` IN (SELECT `test`
 
 $res = mysqli_query($connect , $sql);
 
+//SELECT в подзапросе может возвращать только 1 столбец !!! 
+
 while ($row = $res->fetch_assoc()) {
     echo $row['vpp']."<br>";
     echo $row['dlina']."<br>";
