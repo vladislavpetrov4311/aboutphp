@@ -9,20 +9,14 @@ $connect = mysqli_connect($host, $username , $password, $database);
 
 
 
-$sql = "SELECT `vpp` , `dlina` FROM `plane` WHERE `id` IN (SELECT `test`   
-                                                           FROM `mytest`
-                                                           WHERE `test` IN(
-                                                            SELECT `test`
-                                                            FROM `mytest2`
-                                                            WHERE `mytest`.`test` = `mytest2`.`test`)
-                                                           );";
+$sql = "SELECT `test` , (SELECT COUNT(`test`) FROM `mytest` WHERE `mytest`.`test` = `mytest2`.`test`) AS `result` FROM `mytest2`;";
 
 $res = mysqli_query($connect , $sql);
 
 
 while ($row = $res->fetch_assoc()) {
-    echo $row['vpp']."<br>";
-    echo $row['dlina']."<br>";
+    echo $row['test']."<br>";
+    echo $row['result']."<br>";
     echo "<br>";
 
 }
