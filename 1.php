@@ -9,12 +9,12 @@ $connect = mysqli_connect($host, $username , $password, $database);
 
 
 
-$sql = "SELECT COUNT(`id`) AS `result` FROM `plane` GROUP BY `id` ORDER BY `result`;";
+$sql = "SELECT `vpp` FROM `plane` WHERE `id` IN (SELECT `test` FROM `mytest`);";
 
 $res = mysqli_query($connect , $sql);
 
 while ($row = $res->fetch_assoc()) {
-    echo $row['result']."<br>";
+    echo $row['vpp']."<br>";
     echo "<br>";
 
 }
