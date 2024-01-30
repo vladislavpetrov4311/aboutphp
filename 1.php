@@ -8,14 +8,15 @@ $database = 'testDB';
 $connect = mysqli_connect($host, $username , $password, $database);
 
 
-// FULL JOIN в mysql не поддерживается, но обойдём это, путём операции UNION 
-$sql = "SELECT COUNT(`id`) AS `res`, `test2` FROM `plane` INNER JOIN `mytest`  ON `plane`.`id` = `mytest`.`test2` GROUP BY `id`;";
+
+$sql = "SELECT `new`.`new_id` , `id` , `test2` FROM `plane` INNER JOIN `mytest` ON (`id` = `test2`) RIGHT JOIN `new` ON (`id` = `new`.`new_id`)";
 
 $res = mysqli_query($connect , $sql);
 
 
 while ($row = $res->fetch_assoc()) {
-    echo $row['res']."<br>";
+    echo $row['new_id']."<br>";
+    echo $row['id']."<br>";
     echo $row['test2']."<br>";
     echo "<br>";
 
