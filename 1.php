@@ -9,16 +9,13 @@ $connect = mysqli_connect($host, $username , $password, $database);
 
 
 
-$sql = "SELECT `vpp` , `dlina` , `id` , `test2` FROM `plane` AS `P` INNER JOIN `mytest` AS `MT` ON (`P`.`id` = `MT`.`test2`);";
+$sql = "SELECT `P`.`vpp`  FROM `plane` AS `P` INNER JOIN `plane` AS `P2` ON (`P`.`id` = `P2`.`id`) AND NOT `P`.`vpp` IS NULL;";
 
 $res = mysqli_query($connect , $sql);
 
 
 while ($row = $res->fetch_assoc()) {
     echo $row['vpp']."<br>";
-    echo $row['dlina']."<br>";
-    echo $row['id']."<br>";
-    echo $row['test2']."<br>";
     echo "<br>";
 
 }
