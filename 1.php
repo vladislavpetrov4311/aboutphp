@@ -9,7 +9,7 @@ $connect = mysqli_connect($host, $username , $password, $database);
 
 
 
-$sql = "SELECT `id` , `test2` FROM `plane` LEFT OUTER JOIN `mytest`  ON `plane`.`id` = `mytest`.`test2`;";
+$sql = "SELECT `id` , `test2` FROM `plane` RIGHT OUTER JOIN `mytest`  ON `plane`.`id` = `mytest`.`test2`;";
 
 $res = mysqli_query($connect , $sql);
 
