@@ -9,9 +9,9 @@ $connect = mysqli_connect($host, $username , $password, $database);
 
 
 
-$sql = "SELECT `id` FROM `plane` WHERE `id` BETWEEN 25 AND 76
+$sql = "SELECT `id`, `new_test`FROM `plane`, `new` WHERE `id` = `new_test` 
         UNION 
-        SELECT `new_test` FROM `new`;";
+        SELECT `new_test`, `id` FROM `new`, `plane`;";
 
 $res = mysqli_query($connect , $sql);
 
