@@ -10,7 +10,7 @@ $connect = mysqli_connect($host, $username , $password, $database);
 
 $sql = "SELECT `id`, `new_test`FROM `plane`, `new` WHERE `id` = `new_test` 
         UNION ALL
-        SELECT `id`, `new_test` FROM `new`, `plane` WHERE `new_test` = 76 AND `id` = `new_test`;";
+        SELECT `id`, `new_test` FROM `new`, `plane` ORDER BY `id`;";
 
 $res = mysqli_query($connect , $sql);
 
