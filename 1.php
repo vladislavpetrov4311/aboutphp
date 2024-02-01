@@ -8,7 +8,7 @@ $database = 'testDB';
 $connect = mysqli_connect($host, $username , $password, $database);
 
 
-$sql = "INSERT INTO `plane` (`vpp`,  `id` , `dlina` ) VALUES ('501' , '500' , '502');";
+$sql = "INSERT INTO `new` (`new_test` , `new2`) SELECT `test1` , `test2` FROM `mytest`;";
 
 $res = mysqli_query($connect , $sql);
 
