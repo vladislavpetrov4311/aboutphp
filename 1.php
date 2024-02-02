@@ -7,8 +7,8 @@ $database = 'testDB';
 
 $connect = mysqli_connect($host, $username , $password, $database);
 
-
-$sql = "UPDATE `plane` SET `itog` = NULL, `vpp` = 'проверка' WHERE `id` IN (SELECT `test1` FROM `mytest` WHERE `test1` = `id`);";
+//DELETE удаляет строку целиком, а не отдельные столбцы
+$sql = "DELETE FROM `plane` WHERE `id` = 2;";
 
 $res = mysqli_query($connect , $sql);
 
