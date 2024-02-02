@@ -8,7 +8,7 @@ $database = 'testDB';
 $connect = mysqli_connect($host, $username , $password, $database);
 
 
-$sql = "INSERT INTO `new` (`new_test` , `new2`) SELECT `test1` , `test2` FROM `mytest`;";
+$sql = "UPDATE `plane` SET `itog` = 45 WHERE `id` = 76;";
 
 $res = mysqli_query($connect , $sql);
 
