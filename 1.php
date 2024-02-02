@@ -8,7 +8,7 @@ $database = 'testDB';
 $connect = mysqli_connect($host, $username , $password, $database);
 
 
-$sql = "UPDATE `plane` SET `itog` = 11 , `vpp` = 'обновление №2' WHERE `id` = 76;";
+$sql = "UPDATE `plane` SET `itog` = NULL, `vpp` = 'проверка' WHERE `id` IN (SELECT `test1` FROM `mytest` WHERE `test1` = `id`);";
 
 $res = mysqli_query($connect , $sql);
 
