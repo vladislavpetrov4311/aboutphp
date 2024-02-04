@@ -8,7 +8,7 @@ $database = 'testDB';
 $connect = mysqli_connect($host, $username , $password, $database);
 
 
-$sql = "DROP TABLE `new5`;";
+$sql = "RENAME TABLE `new5` TO `new6`;";
 
 $res = mysqli_query($connect , $sql);
 
