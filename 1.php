@@ -10,9 +10,8 @@ $connect = mysqli_connect($host, $username , $password, $database);
 
 $sql = "ALTER TABLE `new6`
                         
-                         ADD `test4` TEXT (10) NULL,
-                         ADD `test5` TEXT (10) NULL    
-                        ;";
+                         DROP COLUMN `vpp2`,
+                         DROP COLUMN `test2`;";
 
 $res = mysqli_query($connect , $sql);
 
