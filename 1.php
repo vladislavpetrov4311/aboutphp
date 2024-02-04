@@ -8,10 +8,7 @@ $database = 'testDB';
 $connect = mysqli_connect($host, $username , $password, $database);
 
 
-$sql = "ALTER TABLE `new6`
-                        
-                         DROP COLUMN `vpp2`,
-                         DROP COLUMN `test2`;";
+$sql = "DROP TABLE `new5`;";
 
 $res = mysqli_query($connect , $sql);
 
