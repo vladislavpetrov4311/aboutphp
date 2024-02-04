@@ -7,8 +7,12 @@ $database = 'testDB';
 
 $connect = mysqli_connect($host, $username , $password, $database);
 
-//DELETE удаляет строку целиком, а не отдельные столбцы
-$sql = "DELETE FROM `plane` WHERE `id` = 2;";
+
+$sql = "CREATE TABLE `new6`
+                        (
+                         `vpp_num` INTEGER (10) NOT NULL,
+                         `vpp2` TEXT (10) NULL    
+                        );";
 
 $res = mysqli_query($connect , $sql);
 
