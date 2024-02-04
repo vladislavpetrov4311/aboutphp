@@ -8,11 +8,11 @@ $database = 'testDB';
 $connect = mysqli_connect($host, $username , $password, $database);
 
 
-$sql = "CREATE TABLE `new6`
-                        (
-                         `vpp_num` INTEGER (10) NOT NULL,
-                         `vpp2` TEXT (10) NULL    
-                        );";
+$sql = "ALTER TABLE `new6`
+                        
+                         ADD `test4` TEXT (10) NULL,
+                         ADD `test5` TEXT (10) NULL    
+                        ;";
 
 $res = mysqli_query($connect , $sql);
 
