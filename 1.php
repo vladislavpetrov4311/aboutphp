@@ -8,18 +8,17 @@ $database = 'testDB';
 $connect = mysqli_connect($host, $username , $password, $database);
 
 
-$sql = "CREATE VIEW `my_pred` AS SELECT CONCAT(`id` , ' ', `vpp`) AS `res` FROM `plane`;";
+$sql = "SELECT `res` FROM `my_pred` WHERE NOT `res` IS NULL;";
 
 $res = mysqli_query($connect , $sql);
 
-/*
+
 while ($row = $res->fetch_assoc()) {
-    echo $row['id']."<br>";
-    echo $row['new2']."<br>";
+    echo $row['res']."<br>";
     echo "<br>";
 
 }
-*/
+
 
 
 ?>
