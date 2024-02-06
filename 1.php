@@ -8,13 +8,18 @@ $database = 'testDB';
 $connect = mysqli_connect($host, $username , $password, $database);
 
 
-$sql = "CALL `my_p`(76);";
+$sql = "CALL `my_proc`(76 , @q);";
 
 $res = mysqli_query($connect , $sql);
 
 
-while ($row = $res->fetch_assoc()) {
-    echo $row['vpp']."<br>";
+$sql2 = "SELECT `dlina` FROM `plane`
+         WHERE `vpp` = @q;";
+
+$res2 = mysqli_query($connect , $sql2);
+
+while ($row = $res2->fetch_assoc()) {
+    echo $row['dlina']."<br>";
     echo "<br>";
 
 }
