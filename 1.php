@@ -8,8 +8,7 @@ $database = 'testDB';
 $connect = mysqli_connect($host, $username , $password, $database);
 
 
-$sql = "ALTER TABLE `Q2` 
-        ADD UNIQUE (`mus`(15));";
+$sql = "CREATE INDEX `my_ind` ON `Q1` (`itog`);";
 $res = mysqli_query($connect , $sql);
 
 
