@@ -8,7 +8,8 @@ $database = 'testDB';
 $connect = mysqli_connect($host, $username , $password, $database);
 
 
-$sql = "CREATE INDEX `my_ind` ON `Q1` (`itog`);";
+$sql = "ALTER TABLE `Q1` 
+        DROP INDEX `my_ind`;";
 $res = mysqli_query($connect , $sql);
 
 
