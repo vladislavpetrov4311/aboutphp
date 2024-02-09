@@ -8,8 +8,8 @@ $database = 'testDB';
 $connect = mysqli_connect($host, $username , $password, $database);
 
 
-$sql = "ALTER TABLE `Q1` 
-        ADD CONSTRAINT PRIMARY KEY (`id2`);";
+$sql = "ALTER TABLE `Q2` 
+        ADD CONSTRAINT FOREIGN KEY (`new_test`) REFERENCES `Q1` (`id2`);";
 $res = mysqli_query($connect , $sql);
 
 
