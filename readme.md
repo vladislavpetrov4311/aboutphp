@@ -1,1 +1,1 @@
-работа с mysql
+работа с PDO + MySQL
