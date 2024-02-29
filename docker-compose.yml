@@ -2,7 +2,7 @@ version: '3'
 
 services:
   myapp:
-    image: restapi-myapp
+    image: mypdo
     volumes: 
       - ./:/var/www/html
     ports:
