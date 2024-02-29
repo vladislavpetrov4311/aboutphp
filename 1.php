@@ -8,14 +8,15 @@ $database = 'testDB';
 
 $pdo = new PDO("mysql:host=$host;dbname=$database;", $username, $password);
 
-$sql = "SELECT * FROM `Q1`;";
+
+$myid = '1;DELETE FROM `Q1`;';
+
+$sql = "SELECT * FROM `Q1` WHERE `id` = $myid;";
 
 $res = $pdo->query($sql);
 
-while($user = $res->FETCH(PDO::FETCH_ASSOC))
-{
-    print_r($user);
-}
 
+$user = $res->fetch(PDO::FETCH_ASSOC);
+print_r($user);
 
 ?>
