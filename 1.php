@@ -10,12 +10,13 @@ $pdo = new PDO("mysql:host=$host;dbname=$database;", $username, $password);
 
 
 $myid = '1;DELETE FROM `Q1`;';
+$tittle = 'титл_тест';
 
-$sql = "SELECT * FROM `Q1` WHERE `id` = ?;";
+$sql = "SELECT * FROM `Q1` WHERE `id` = ? AND `tittle` = ?;";
 
 $res = $pdo->prepare($sql);
 
-$res->execute([$myid]);
+$res->execute([$myid , $tittle]);
 
 
 $user = $res->fetch(PDO::FETCH_ASSOC);
