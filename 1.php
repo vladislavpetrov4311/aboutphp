@@ -10,10 +10,10 @@ $pdo = new PDO("mysql:host=$host;dbname=$database;", $username, $password);
 
 
 $id = 4;
-$tit = 'my_tittle';
-$body = 'my_body';
+$tit = 'test4';
+$body = 'test_body';
 
-$sql = "INSERT INTO `Q1` (`id` , `tittle` , `body`) VALUES (:id , :tit , :body);";
+$sql = "UPDATE `Q1` SET `tittle` = :tit, `body` = :body WHERE `id` = :id;";
 
 $in_db = $pdo->prepare($sql);
 
