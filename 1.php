@@ -13,26 +13,23 @@ $id = 4;
 $tit = 'test4';
 $body = 'test_body';
 
-$sql = "UPDATE `Q1` SET `tittle` = :tit, `body` = :body WHERE `id` = :id;";
+$sql = "DELETE FROM `Q1` WHERE `id` = :id;";
 
 $in_db = $pdo->prepare($sql);
 
 $in_db->execute([
-    ':id' => $id,
-    ':tit' => $tit,
-    ':body' => $body
-]);
-
-
-
-
-
-$sql2 = "SELECT * FROM `Q1` WHERE `id` = :id;";
-$res = $pdo->prepare($sql2);
-$res->execute([
     ':id' => $id
 ]);
-$user = $res->fetch(PDO::FETCH_ASSOC);
+
+
+
+
+
+$sql2 = "SELECT * FROM `Q1`;";
+$res = $pdo->prepare($sql2);
+$res->execute();
+
+$user = $res->fetchAll(PDO::FETCH_ASSOC);
 print_r($user);
 
 ?>
