@@ -1,23 +1,21 @@
 <?php
 
-class Shop
+class user 
 {
 
-private $name;
-
-public function getname()
-{
-
-    $this->name = "Vlad";
-    echo $this->name;
-
+public $name="имя";
+public $password="пароль";
 }
 
-}
+$admin = new user();
+$simpUser = new user();
 
-$main = new Shop();
+$admin->name="vlad";
+$simpUser->name="simp";
 
-$main->getname();
+echo $admin->name;
+echo $simpUser->name;
+
 
 
 ?>
