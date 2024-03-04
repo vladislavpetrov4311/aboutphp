@@ -3,14 +3,21 @@
 class Shop
 {
 
+private $name;
 
+public function getname()
+{
+
+    $this->name = "Vlad";
+    echo $this->name;
 
 }
 
+}
 
-$product = new Shop();
+$main = new Shop();
 
-var_dump($product);
+$main->getname();
 
 
 ?>
