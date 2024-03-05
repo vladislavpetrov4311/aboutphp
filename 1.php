@@ -1,23 +1,51 @@
 <?php
 
-class user1
+class User
 {
+    protected $name;
+    protected $pass;
 
-    private static $name;
-
-    public static function setname($main)
+    public function __construct($param , $password)
     {
-        self::$name=$main;
+        $this->name = $param;
+        $this->pass = $password;
     }
 
-    public static function getname()
+    public function getname()
     {
-        echo self::$name;
+        $res = "{$this->name}".' '."{$this->pass}";
+        return $res;
     }
+    
 }
 
-//доступ к методы через свойство класса, а не с использованием объекта
-user1::setname("root");
-echo user1::getname();
+
+class Admin extends User
+{
+    
+    protected $level;
+
+    public function __construct($param , $password, $Mlevel)
+    {
+        parent::__construct($param, $password);
+        $this->level = $Mlevel;
+    }
+        
+    
+
+    public function getname()
+    {
+         $main_res = parent::getname();
+         $main_res.= " {$this->level}";
+         return $main_res;
+    }
+
+    
+}
+
+$admin = new Admin("admin" , "root" , "main");
+$inf = $admin->getname();
+echo $inf;
+
 
 ?>
