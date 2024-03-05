@@ -1,21 +1,21 @@
 <?php
 
-class user 
+class User 
 {
 
-public $name="имя";
-public $password="пароль";
+    public $name = "имя";
+
+    public function getname()
+    {
+         return "{$this->name}". "{$this->surname}";   
+    }
 }
 
-$admin = new user();
-$simpUser = new user();
+$admin = new User();
+$admin->name="Ivan";
+$admin->surname="Ivanov";
 
-$admin->name="vlad";
-$simpUser->name="simp";
-
-echo $admin->name;
-echo $simpUser->name;
-
+echo "пользователь {$admin->getname()}";
 
 
 ?>
