@@ -1,31 +1,23 @@
 <?php
 
-class user
+class user1
 {
 
-    public $name;
-    public $password;
-  
-    public function  __construct($main_name, $main_pass)
+    private static $name;
+
+    public static function setname($main)
     {
-        $this->name=$main_name;
-        $this->password = $main_pass;
+        self::$name=$main;
     }
 
-    public function getinfo()
+    public static function getname()
     {
-        return "{$this->name}".' '."{$this->password}";
-    }
-
-    public function __destruct()
-    {
-        $this->name;
-        $this->password;
+        echo self::$name;
     }
 }
 
-$admin = new User("admin", "root");
-
-echo $admin->getinfo();
+//доступ к методы через свойство класса, а не с использованием объекта
+user1::setname("root");
+echo user1::getname();
 
 ?>
