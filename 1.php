@@ -1,21 +1,31 @@
 <?php
 
-class User 
+class user
 {
 
-    public $name = "имя";
-
-    public function getname()
+    public $name;
+    public $password;
+  
+    public function  __construct($main_name, $main_pass)
     {
-         return "{$this->name}". "{$this->surname}";   
+        $this->name=$main_name;
+        $this->password = $main_pass;
+    }
+
+    public function getinfo()
+    {
+        return "{$this->name}".' '."{$this->password}";
+    }
+
+    public function __destruct()
+    {
+        $this->name;
+        $this->password;
     }
 }
 
-$admin = new User();
-$admin->name="Ivan";
-$admin->surname="Ivanov";
+$admin = new User("admin", "root");
 
-echo "пользователь {$admin->getname()}";
-
+echo $admin->getinfo();
 
 ?>
