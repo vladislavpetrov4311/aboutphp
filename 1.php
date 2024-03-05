@@ -16,7 +16,12 @@ class User
         $res = "{$this->name}".' '."{$this->pass}";
         return $res;
     }
-    
+
+    final public function test($mytest)
+    {
+        return $this->pass = $mytest;    
+    }
+
 }
 
 
@@ -40,12 +45,20 @@ class Admin extends User
          return $main_res;
     }
 
+    public function test($main)
+    {
+        return $main;  
+    }
     
 }
 
 $admin = new Admin("admin" , "root" , "main");
 $inf = $admin->getname();
 echo $inf;
+
+$A = $admin->test("123");
+echo $A;
+
 
 
 ?>
