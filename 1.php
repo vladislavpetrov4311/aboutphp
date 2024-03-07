@@ -1,28 +1,38 @@
 <?php
 
-class User
+abstract class User
 {
-    const qwer = 1;
-    protected static $name;
+    public $name;
 
-    protected static function getinfo()
-    {
-        $main = self::$name = self::qwer;
-        return $main;
-    }
+    abstract public function getinfo();
 }
+
 
 class Admin extends User
 {
 
-    public static function test()
+    public function getinfo()
     {
-        $my_test = parent::getinfo();
-        return $my_test;
+        return $this->name = 11;
     }
 
 }
 
-echo Admin::test();
+
+class Main extends User
+{
+
+    public function getinfo()
+    {
+        return $this->name = "qwert";
+    }
+
+}
+$admin = new Admin();
+echo $admin->getinfo();
+
+$main = new Main();
+echo $main->getinfo();
+
 
 ?>
