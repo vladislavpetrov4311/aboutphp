@@ -1,23 +1,33 @@
 <?php
 
-class User
+namespace A;
 {
-    public static $name = "111";
-    public static function test()
+
+    class User
     {
-        return self::$name;
+        public $name;
+        public function getname()
+        {
+            return $this->name;
+        }
     }
 
-    public static function __callStatic($met, $args)
-    {
-        echo "попытка обрещения к несуществующему статическому методу";
-    }
 }
 
-echo User::test2();
 
+namespace B;
+{
 
+    class User
+    {
+        public $status;
+        public function getstatus()
+        {
+            return $this->status;
+        }
+    }
 
+}
 
 
 ?>
