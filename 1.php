@@ -2,19 +2,25 @@
 
 class User
 {
-    public function __clone()
+    private $level;
+    private $status;
+    
+    public function __get($arg)
     {
-        echo "111";
+        echo "попытка получить значение скрытого или несуществующего свойства ".$arg;
     }
 
-    public function test()
-    {
-        echo "222";
+    public function __set($arg , $val)
+    {  
+       echo "попытка придать значение ".$val." скрытому или несуществующему свойству ".$arg;
     }
 }
 
+
 $user = new User();
-$user2 = clone $user;
+$user->level;
+$user->level12 = 12;
+
 
 
 ?>
