@@ -2,24 +2,28 @@
 
 class User
 {
-    private $level;
-    private $status;
-    
-    public function __get($arg)
+    private $name = "admin";
+    private function getname()
     {
-        echo "попытка получить значение скрытого или несуществующего свойства ".$arg;
+        return $this->name;
     }
 
-    public function __set($arg , $val)
-    {  
-       echo "попытка придать значение ".$val." скрытому или несуществующему свойству ".$arg;
+    public function __call($met , $val)
+    {
+        if($met === "getname")
+        {
+            echo $this->getname();
+        }
+        else
+        {
+            echo "некорректное обращение к методу";
+        }
     }
 }
 
 
 $user = new User();
-$user->level;
-$user->level12 = 12;
+$user->getname();
 
 
 
