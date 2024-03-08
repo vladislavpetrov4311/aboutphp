@@ -2,28 +2,21 @@
 
 class User
 {
-    private $name = "admin";
-    private function getname()
+    public static $name = "111";
+    public static function test()
     {
-        return $this->name;
+        return self::$name;
     }
 
-    public function __call($met , $val)
+    public static function __callStatic($met, $args)
     {
-        if($met === "getname")
-        {
-            echo $this->getname();
-        }
-        else
-        {
-            echo "некорректное обращение к методу";
-        }
+        echo "попытка обрещения к несуществующему статическому методу";
     }
 }
 
+echo User::test2();
 
-$user = new User();
-$user->getname();
+
 
 
 
