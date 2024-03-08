@@ -1,35 +1,20 @@
 <?php
 
-trait User
+class User
 {
-    public $name = "qwer";
-    public function getname()
+    public function __clone()
     {
-        return $this->name;
+        echo "111";
+    }
+
+    public function test()
+    {
+        echo "222";
     }
 }
 
-trait User2
-{
-    public $status;
-    public function getstatus()
-    {
-        return $this->status;
-    }
-}
-
-class Admin
-{
-    use User, User2;
-    public function __construct()
-    {
-        $this->name = "user";
-        $this->status = "root";
-    }
-}
-
-$admin = new Admin();
-echo $admin->getname().' '.$admin->getstatus();
+$user = new User();
+$user2 = clone $user;
 
 
 ?>
