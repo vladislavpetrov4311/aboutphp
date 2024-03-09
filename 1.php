@@ -1,38 +1,38 @@
 <?php
 
-class classExceptions extends Exception
+class User
 {
-    public $text;
+
+    public $name;
     public function __construct($text)
     {
-        $this->text = $text;
+        $this->name = $text;
     }
-    public function gettext()
+
+    public function checkText()
     {
-        return $this->text;
+
+        try {
+            if($this->name != "root12")
+            {
+                throw new Exception("неверный пароль");
+            }
+            else
+            {
+                echo "Ok !";
+            }
+        } catch (Exception $e) {
+            echo "исключение ".$e->getMessage();
+            echo "<br> в файле ".$e->getFile();
+            echo "<br> на строке ".$e->getLine();
+            echo "<br> ".$e->__toString();
+        }
     }
+
 }
 
-
-
-
-$name = "qwe.php";
-
-try
-{
-    if(!file_exists($name))
-    {
-        throw new classExceptions("not founf file");
-    }  
-
-} catch (classExceptions $e)
-     {
-        echo "исключение ".$e->gettext();
-     }
-    
-
-
-
+$admin = new User("root1e2");
+$admin->checkText();
 
 
 
