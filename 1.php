@@ -1,18 +1,39 @@
 <?php
 
-$name = "namespace.php";
+class classExceptions extends Exception
+{
+    public $text;
+    public function __construct($text)
+    {
+        $this->text = $text;
+    }
+    public function gettext()
+    {
+        return $this->text;
+    }
+}
+
+
+
+
+$name = "qwe.php";
 
 try
 {
-
     if(!file_exists($name))
     {
-        throw new Exception ("not founf file");
-    }
+        throw new classExceptions("not founf file");
+    }  
 
-} catch (Exception $e)
-{
-    echo "исключение ".$e->getMessage();
-}
+} catch (classExceptions $e)
+     {
+        echo "исключение ".$e->gettext();
+     }
+    
+
+
+
+
+
 
 ?>
