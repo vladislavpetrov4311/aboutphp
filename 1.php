@@ -1,33 +1,12 @@
 <?php
 
-namespace A;
+
+try
 {
-
-    class User
-    {
-        public $name;
-        public function getname()
-        {
-            return $this->name;
-        }
-    }
-
-}
-
-
-namespace B;
+    $name = 10/0;
+} catch (Throwable $e)
 {
-
-    class User
-    {
-        public $status;
-        public function getstatus()
-        {
-            return $this->status;
-        }
-    }
-
+    echo "исключение деление на ноль ".$e->getMessage();
 }
-
 
 ?>
