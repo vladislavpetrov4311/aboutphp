@@ -18,9 +18,9 @@ class Admin
 {
 
     public $obj;
-    public function __construct()
+    public function __construct($user)
     {
-        $this->obj = new User();
+        $this->obj = $user;
     }
 
     public function setname()
@@ -30,7 +30,9 @@ class Admin
     }
 }
 
-$admin = new Admin();
+$user = new User();
+
+$admin = new Admin($user);
 $admin->setname();
 
 
