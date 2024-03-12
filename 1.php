@@ -1,39 +1,37 @@
 <?php
 
+
 class User
 {
 
     public $name;
-    public function __construct($text)
-    {
-        $this->name = $text;
-    }
 
-    public function checkText()
+    public function getname()
     {
-
-        try {
-            if($this->name != "root12")
-            {
-                throw new Exception("неверный пароль");
-            }
-            else
-            {
-                echo "Ok !";
-            }
-        } catch (Exception $e) {
-            echo "исключение ".$e->getMessage();
-            echo "<br> в файле ".$e->getFile();
-            echo "<br> на строке ".$e->getLine();
-            echo "<br> ".$e->__toString();
-        }
+        return $this->name;
     }
 
 }
 
-$admin = new User("root1e2");
-$admin->checkText();
 
+class Admin
+{
+
+    public $obj;
+    public function __construct()
+    {
+        $this->obj = new User();
+    }
+
+    public function setname()
+    {
+        $this->obj->name = "admin";
+        echo $this->obj->getname();
+    }
+}
+
+$admin = new Admin();
+$admin->setname();
 
 
 ?>
