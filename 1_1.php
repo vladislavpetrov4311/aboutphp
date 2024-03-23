@@ -1,17 +1,34 @@
 <?php
-require_once "1.php";
 
-class Factory_Method
+class ship
 {
-    public function buy_ticket_ship()
+
+    public function get_price()
     {
-        return new in_ship();
+        echo "цена путешествия на корабле 100р \n";
     }
 
-    public function buy_ticket_plane()
+    public function get_tur()
     {
-        return new in_plane();
+        echo "путешествие через острова \n";
     }
+
+}
+
+
+class plane
+{
+
+    public function get_price()
+    {
+        echo "цена за перелет 200р \n";
+    }
+
+    public function get_info_plane()
+    {
+        echo "перелет на ИЛ-76 \n";
+    }
+
 }
 
 

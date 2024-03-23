@@ -1,12 +1,15 @@
 <?php
-require_once "1_1.php";
+require_once "1.php";
 
 
-$obj = new Factory_Method();
+$ship = new obj_ship();
+$plane = new obj_plane();
 
-$obj->buy_ticket_ship()->go();
-echo "\n";
-$obj->buy_ticket_plane()->go();
+$ship->get_obj()->get_price();
+$ship->get_obj()->get_tur();
+
+$plane->get_obj()->get_price();
+$plane->get_obj()->get_info_plane();
 
 
 ?>
