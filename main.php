@@ -1,15 +1,13 @@
 <?php
-require_once "1.php";
+require_once "1_2.php";
+require_once "1_1.php";
 
+$plane = new strategy_plane();
+$ship = new strategy_ship();
 
-$ship = new obj_ship();
-$plane = new obj_plane();
-
-$ship->get_obj()->get_price();
-$ship->get_obj()->get_tur();
-
-$plane->get_obj()->get_price();
-$plane->get_obj()->get_info_plane();
+$my_strategy = new get_strategy($plane);
+$my_strategy->run_get_price();
+$my_strategy->run_get_tur();
 
 
 ?>

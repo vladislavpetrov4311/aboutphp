@@ -1,34 +1,30 @@
 <?php
+require_once "1.php";
 
-class ship
+class strategy_plane implements cruiz
 {
-
     public function get_price()
     {
-        echo "цена путешествия на корабле 100р \n";
+        echo "цена за перелёт 200р ";
     }
 
     public function get_tur()
     {
-        echo "путешествие через острова \n";
+        echo "перелёт на ИЛ-76 ";
     }
-
 }
 
-
-class plane
+class strategy_ship implements cruiz
 {
-
     public function get_price()
     {
-        echo "цена за перелет 200р \n";
+        echo "цена за отплыв 100р ";
     }
 
-    public function get_info_plane()
+    public function get_tur()
     {
-        echo "перелет на ИЛ-76 \n";
+        echo "переплыв через океан ";
     }
-
 }
 
 
