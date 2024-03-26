@@ -2,27 +2,24 @@
 
 class cruiz
 {
-    private static $tur;
-    private function __construct()
+    private $tur;
+    private $logistic;
+
+    public function __clone()
     {
-        //запрет на создание экзампляра класса извне через оператор new
+        return $this;
     }
 
-    public static function gettur()
+    public function get_tur($my_tur)
     {
-        if(empty(self::$tur))
-        {
-            self::$tur = new cruiz();
-        }
-        return self::$tur;
+        echo $this->tur = $my_tur;
     }
 
-
-
-    public function tur_plane()
+    public function get_logistic($my_logistic)
     {
-        echo "полёт на самолёте ";
+        echo $this->logistic = $my_logistic;
     }
+   
 }
 
 
