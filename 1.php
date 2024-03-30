@@ -2,24 +2,17 @@
 
 class cruiz
 {
-    private $tur;
-    private $logistic;
+    private $level_hotel;
 
-    public function __clone()
+    public function four_star()
     {
-        return $this;
+        return $this->level_hotel = "у этого отеля 4 звезды";
     }
 
-    public function get_tur($my_tur)
+    public function five_star()
     {
-        echo $this->tur = $my_tur;
+        return $this->level_hotel = "у этого отеля 5 звезд";
     }
-
-    public function get_logistic($my_logistic)
-    {
-        echo $this->logistic = $my_logistic;
-    }
-   
 }
 
 

@@ -1,32 +1,35 @@
 <?php
-require_once "1.php";
 
-class strategy_plane implements cruiz
+class tur_company1
 {
-    public function get_price()
+    private cruiz $tur;
+    public function __construct(cruiz $obj)
     {
-        echo "цена за перелёт 200р ";
+        $this->tur = $obj;
     }
 
-    public function get_tur()
+    public function get_price()
     {
-        echo "перелёт на ИЛ-76 ";
+        $level = $this->tur->four_star();
+        echo "$level"." "."- цена за бронь 100р\n";
     }
 }
 
-class strategy_ship implements cruiz
+
+class tur_company2
 {
+    private cruiz $tur;
+    public function __construct(cruiz $obj)
+    {
+        $this->tur = $obj;
+    }
+
     public function get_price()
     {
-        echo "цена за отплыв 100р ";
-    }
-
-    public function get_tur()
-    {
-        echo "переплыв через океан ";
+        $level = $this->tur->five_star();
+        echo "$level"." "."- цена за бронь 200р\n";
     }
 }
-
 
 
 ?>
