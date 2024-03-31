@@ -1,66 +1,58 @@
 <?php
 
-interface company
+class Facade_company
 {
-    public function get_level_hotel(): int;
-    public function get_price(): int;
-}
+    //класс для взаимодействия с более сложной системы
+    private $level;
+    private $logistic;
 
-class simpl_tur_company implements company
-{
-    public function get_level_hotel(): int
+    public function __construct($logistic , $hotels)
     {
-        return 3;
+        $this->level = $hotels;
+        $this->logistic = $logistic;
     }
 
-    public function get_price(): int
+    public function get_info_company1()
     {
-        return 100;
+        $lev = $this->level->level_hotel1();
+        $logistic = $this->logistic->tur_in_plane();
+        return "$lev\n$logistic";
     }
 
-}
-
-class tur_company1 implements company
-{
-    private $main_company;
-    public function __construct(company $company)
+    public function get_info_company2()
     {
-        $this->main_company = $company;
-    }
-
-    public function get_level_hotel(): int
-    {
-        return $this->main_company->get_level_hotel() + 1;
-    }
-
-    public function get_price(): int
-    {
-        return $this->main_company->get_price() + 100;
+        $lev = $this->level->level_hotel2();
+        $logistic = $this->logistic->tur_in_ship();
+        return "$lev\n$logistic";
     }
 
 }
 
-
-class tur_company2 implements company
+class logistic
 {
-    private $main_company;
-    public function __construct(company $company)
+    public function tur_in_plane()
     {
-        $this->main_company = $company;
+        return "тур на самолёте";
     }
 
-    public function get_level_hotel(): int
+    public function tur_in_ship()
     {
-        return $this->main_company->get_level_hotel() + 2;
+        return "тур на корабле";
     }
-
-    public function get_price(): int
-    {
-        return $this->main_company->get_price() + 200;
-    }
-
 }
 
+class hotels
+{
+    public function level_hotel1()
+    {
+        return "у отеля 3 звезды";
+    }
+
+    public function level_hotel2()
+    {
+        return "у отеля 4 звезды";
+    }
+} 
 
 
 
