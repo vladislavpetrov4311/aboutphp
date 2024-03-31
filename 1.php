@@ -2,42 +2,65 @@
 
 interface company
 {
-    public function about_functions_company(): string;
+    public function get_level_hotel(): int;
+    public function get_price(): int;
 }
 
-//листовые классы
-class level_hotal_in_company1 implements company
+class simpl_tur_company implements company
 {
-    public function about_functions_company(): string
+    public function get_level_hotel(): int
     {
-        return "компания работает с отелями с 4 звездами\n";
+        return 3;
     }
+
+    public function get_price(): int
+    {
+        return 100;
+    }
+
 }
 
-
-class level_hotal_in_company2 implements company
+class tur_company1 implements company
 {
-    public function about_functions_company(): string
+    private $main_company;
+    public function __construct(company $company)
     {
-        return "компания работает с отелями с 5 звездами\n";
+        $this->main_company = $company;
     }
+
+    public function get_level_hotel(): int
+    {
+        return $this->main_company->get_level_hotel() + 1;
+    }
+
+    public function get_price(): int
+    {
+        return $this->main_company->get_price() + 100;
+    }
+
 }
 
-class logistic_hotal_in_company1 implements company
+
+class tur_company2 implements company
 {
-    public function about_functions_company(): string
+    private $main_company;
+    public function __construct(company $company)
     {
-        return "компания производит туры на самолёте\n";
+        $this->main_company = $company;
     }
+
+    public function get_level_hotel(): int
+    {
+        return $this->main_company->get_level_hotel() + 2;
+    }
+
+    public function get_price(): int
+    {
+        return $this->main_company->get_price() + 200;
+    }
+
 }
 
-class logistic_hotal_in_company2 implements company
-{
-    public function about_functions_company(): string
-    {
-        return "компания производит туры на корабле\n";
-    }
-}
 
 
 

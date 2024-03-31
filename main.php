@@ -1,17 +1,22 @@
 <?php
 require_once "1.php";
-require_once "1_1.php";
 
-$hotel = new level_hotal_in_company1();
-$logistic = new logistic_hotal_in_company1();
+$tur = new simpl_tur_company();
+printer($tur);
 
-$company = new cruiz();
-$company->add_list_company($hotel);
-$company->add_list_company($logistic);
+$tur2 = new tur_company1($tur);
+printer($tur2);
+
+$tur3 = new tur_company2($tur);
+printer($tur3);
 
 
-echo $company->about_functions_company();
-
+function printer($obj)
+{
+    $stars = $obj->get_level_hotel();
+    $price = $obj->get_price();
+    echo "уровень отеля $stars,"." "."цена за бронь $price\n";
+}
 
 
 ?>
