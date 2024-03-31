@@ -1,34 +1,26 @@
 <?php
+require_once "1.php";
 
-class tur_company1
+//узловой класс
+class cruiz implements company
 {
-    private cruiz $tur;
-    public function __construct(cruiz $obj)
+    private array $composite = [];
+    public function add_list_company(company $item)
     {
-        $this->tur = $obj;
+        array_push($this->composite , $item);
     }
 
-    public function get_price()
+    public function about_functions_company(): string
     {
-        $level = $this->tur->four_star();
-        echo "$level"." "."- цена за бронь 100р\n";
-    }
-}
-
-
-class tur_company2
-{
-    private cruiz $tur;
-    public function __construct(cruiz $obj)
-    {
-        $this->tur = $obj;
+        $res = "";
+        foreach($this->composite as $list)
+        {
+            $res .= $list->about_functions_company(); // из объекта листа обращаемся к его методу about_functions_company()
+        }
+        return $res;
     }
 
-    public function get_price()
-    {
-        $level = $this->tur->five_star();
-        echo "$level"." "."- цена за бронь 200р\n";
-    }
+
 }
 
 
