@@ -1,12 +1,15 @@
 <?php
 require_once "1.php";
+require_once "1_1.php";
 
-$logistic = new logistic();
-$hotel = new hotels();
-$tur = new Facade_company($logistic , $hotel);
+$client = new client();
 
-echo $tur->get_info_company1();
+$company_1 = new company_1();
+//$company_2 = new company_2(); 
 
+
+$company_1->check_status_ticket($client);
+print_r($company_1->get_info());
 
 
 ?>

@@ -1,27 +1,83 @@
 <?php
-require_once "1.php";
 
-//узловой класс
-class cruiz implements company
+require_once "1_2.php";
+
+class company_1 implements tur_company
 {
-    private array $composite = [];
-    public function add_list_company(company $item)
+    private bool $status;
+    public function check_status_ticket(visitor $client)
     {
-        array_push($this->composite , $item);
+        $this->status = $client->status_ticket();
     }
 
-    public function about_functions_company(): string
+    public function get_tur()
     {
-        $res = "";
-        foreach($this->composite as $list)
+        return "тур проходит на самолёте ИЛ-76";
+    }
+
+    public function get_hotel()
+    {
+        return "ночёвка в отеле 4 звёзд";
+    }
+
+    public function get_info()
+    {
+        $info = [];
+        if($this->status != false)
         {
-            $res .= $list->about_functions_company(); // из объекта листа обращаемся к его методу about_functions_company()
+            array_push($info , $this->get_tur());
+            array_push($info , $this->get_hotel());
         }
-        return $res;
+        else
+        {
+            array_push($info , "недействительный билет");
+        }
+        return $info;
     }
 
+} 
 
-}
+
+class company_2 implements tur_company
+{
+    private bool $status;
+    public function check_status_ticket(visitor $client)
+    {
+        $this->status = $client->status_ticket();
+    }
+
+    public function get_tur()
+    {
+        return "тур проходит на корабле";
+    }
+
+    public function get_hotel()
+    {
+        return "ночёвка в отеле 5 звёзд";
+    }
+
+    public function get_lunch()
+    {
+        return "обед на корабле";
+    }
+
+    public function get_info()
+    {
+        $info = [];
+        if($this->status != false)
+        {
+            array_push($info , $this->get_tur());
+            array_push($info , $this->get_hotel());
+            array_push($info , $this->get_lunch());
+        }
+        else
+        {
+            array_push($info , "недействительный билет");
+        }
+        return $info;
+    }
+
+} 
 
 
 ?>
