@@ -1,12 +1,13 @@
 <?php
 
-require_once "1_2.php";
+require_once "1_1.php";
 
-class client implements visitor
+class main_observer implements Observer
 {
-    public function status_ticket()
+    private array $data;
+    public function get_updata(tur_company $company)
     {
-        return true;
+        return $company->notify();
     }
 }
 
