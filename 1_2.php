@@ -2,101 +2,33 @@
 
 require_once "1_1.php";
 
-class company_1 implements tur_company
+class ticketTrue implements command
 {
-    private array $data = [];
-    private array $sum = [];
-    public function standart_ticket_transaction()
+    private $ticket;
+    public function __construct(ticket $ticket)
     {
-        array_push($this->sum , 100); // закидываем в кассу 100р
-        $this->attach(__METHOD__);
-        return 100;
-    }
+        $this->ticket = $ticket;
+    } 
 
-    public function gold_ticket_transaction()
+    public function execute()
     {
-        array_push($this->sum , 200); // закидываем в кассу 200р
-        $this->attach(__METHOD__);
-        return 200;
+        return $this->ticket->get_ticket();
     }
+} 
 
-    public function return_ticket($type_ticket)
-    {
-        //возврат билета
-        $this->attach(__METHOD__);
-        $this->detach($type_ticket);
-    }
-
-
-    public function get_all_salary()
-    {
-        return $this->sum;
-    }
-
-
-    
-    public function attach($data)
-    {
-        array_push($this->data , "Вызов из ".$data);
-    }
-
-    public function detach($type_ticket)
-    {
-        $index = array_search($type_ticket, $this->sum);
-        unset($this->sum[$index]);
-    }
-
-    public function notify()
-    {
-        return $this->data;
-    }
-}
-
-
-
-
-class company_2 implements tur_company
+class ticketFalse implements command
 {
-    private array $data = [];
-    private array $sum = [];
-    public function standart_ticket_transaction()
+    private $ticket;
+    public function __construct(ticket $ticket)
     {
-        array_push($this->sum , 50); // закидываем в кассу 50р
-        $this->attach(__METHOD__);
-        return 100;
-    }
+        $this->ticket = $ticket;
+    } 
 
-    public function return_ticket($type_ticket)
+    public function execute()
     {
-        //возврат билета
-        $this->attach(__METHOD__);
-        $this->detach($type_ticket);
+        return $this->ticket->return_ticket();
     }
-
-
-    public function get_all_salary()
-    {
-        return $this->sum;
-    }
-
-
-    
-    public function attach($data)
-    {
-        array_push($this->data , "Вызов из ".$data);
-    }
-
-    public function detach($item_price)
-    {
-        $index = array_search($item_price, $this->sum);
-        unset($this->sum[$index]);
-    }
-
-    public function notify()
-    {
-        return $this->data;
-    }
-}
+} 
 
 
 ?>

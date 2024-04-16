@@ -1,15 +1,21 @@
 <?php
 
-interface Observer
+interface command
 {
-    public function get_updata(tur_company $company);
+    public function execute();
 }
 
-interface tur_company
+class ticket
 {
-    public function attach($data);
-    public function detach($data);
-    public function notify();
+    public function get_ticket()
+    {
+        return "билет куплен";
+    }
+
+    public function return_ticket()
+    {
+        return "билет сдан";
+    }
 }
 
 
