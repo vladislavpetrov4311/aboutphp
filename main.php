@@ -1,16 +1,16 @@
 <?php
 
 require_once "1.php";
-require_once "1_1.php";
 require_once "1_2.php";
 
-$tur = new ticket();
-$status_true = new ticketTrue($tur);
-$status_false = new ticketFalse($tur);
+$ticket = new Ticket();
+$intepret1 = new Varibl($ticket);
+$intepret12 = new AndExp($ticket , $ticket);
+$intepret13 = new OrExp($ticket , $ticket);
 
-$control = new controller($status_true , $status_false);
-echo $control->get_true();
-
+var_dump($intepret1->interpreter());
+var_dump($intepret12->interpreter());
+var_dump($intepret13->interpreter());
 
 
 ?>

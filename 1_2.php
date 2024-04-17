@@ -2,33 +2,28 @@
 
 require_once "1_1.php";
 
-class ticketTrue implements command
+class Ticket
 {
-    private $ticket;
-    public function __construct(ticket $ticket)
+    public function get_status($data): bool
     {
-        $this->ticket = $ticket;
-    } 
-
-    public function execute()
-    {
-        return $this->ticket->get_ticket();
+        $status = 100;
+        if($data < $status)
+            return false;
+        else
+            return true;
     }
-} 
 
-class ticketFalse implements command
-{
-    private $ticket;
-    public function __construct(ticket $ticket)
+    public function get_volume($data): bool
     {
-        $this->ticket = $ticket;
-    } 
-
-    public function execute()
-    {
-        return $this->ticket->return_ticket();
+        $standart = 2;
+        if($data < $standart)
+            return false;
+        else
+            return true;
     }
-} 
+
+    
+}
 
 
 ?>
