@@ -1,1 +1,1 @@
-работа с mysql
+подключение postgresSQL в pdo внутри docker 

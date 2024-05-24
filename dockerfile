@@ -1,0 +1,11 @@
+FROM php:8.2-apache
+WORKDIR /var/www/html/
+RUN apt-get update -y && apt-get install -y \
+libpq-dev \
+&& docker-php-ext-install pdo pdo_pgsql
+RUN docker-php-ext-install pdo_mysql
+
+#подключаем модуль для апач для преобразования URL-ов
+RUN a2enmod rewrite
+# Перезапускаем сервер Apache
+RUN service apache2 restart
