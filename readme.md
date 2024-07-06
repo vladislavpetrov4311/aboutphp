@@ -6,7 +6,9 @@
     `git clone https://github.com/vladislavpetrov4311/aboutphp -b parallel_php`
 2. Переходим в папку с репозиторием aboutphp и из терминала запускаем: 
 
-    `docker run -it my_php_pthreads_image sh`
+    1. `docker build . -t for_test_image`
+    
+    2. `docker run -it -d -v .:/var/www/html {id your image}`
 
 ## Пример работы
   ![Alt text](image.png)
