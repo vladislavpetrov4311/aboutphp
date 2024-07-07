@@ -10,6 +10,8 @@
     
     2. `docker run -it -d -v .:/var/www/html {id your image}`
 
+    3. `docker exec -it {id your container} sh`
+
 ## Пример работы
   ![Alt text](image.png)
 
